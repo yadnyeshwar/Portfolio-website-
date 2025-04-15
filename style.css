@@ -1,0 +1,670 @@
+/* --- CSS Variables (Theme Customization) --- */
+:root {
+  --primary-color: #0d1b2a; /* Dark Blue */
+  --secondary-color: #e0e1dd; /* Light Grayish */
+  --accent-color: #415a77; /* Medium Blue/Gray */
+  --accent-hover-color: #778da9; /* Lighter Blue/Gray */
+  --text-color: #1b263b; /* Darker text */
+  --light-text-color: #f8f9fa; /* Light text for dark backgrounds */
+  --heading-font: "Roboto Mono", monospace; /* Monospace for tech feel */
+  --body-font: "Inter", sans-serif;
+  --base-font-size: 16px;
+  --border-radius: 6px; /* Slightly sharper edges */
+  --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --transition-speed: 0.3s;
+  --container-width: 1140px;
+  --navbar-height: 70px; /* Define navbar height for potential offsets */
+}
+
+/* --- Basic Reset & Body Styles --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: var(--base-font-size);
+  scroll-padding-top: var(--navbar-height); /* Offset for fixed navbar */
+}
+
+body {
+  font-family: var(--body-font);
+  color: var(--text-color);
+  background-color: var(--secondary-color);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  position: relative; /* Needed for mobile menu overlay */
+}
+
+/* --- Utility Classes --- */
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 1.5rem; /* Consistent padding */
+}
+
+.section {
+  padding: 5rem 0;
+}
+
+.section-dark {
+  background-color: var(--primary-color);
+  color: var(--light-text-color);
+}
+.section-dark h1,
+.section-dark h2,
+.section-dark h3 {
+  color: var(--light-text-color);
+}
+.section-dark a {
+  color: var(--secondary-color);
+}
+.section-dark a:hover,
+.section-dark a:focus {
+  color: var(--accent-hover-color);
+}
+/* Alternate light background for contrast */
+.section-light-alt {
+  background-color: #ffffff;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.section-subtitle {
+  max-width: 600px;
+  margin: 0 auto 2rem auto;
+  font-size: 1.1rem;
+  color: #555; /* Slightly muted subtitle color */
+}
+.section-dark .section-subtitle {
+  color: var(--secondary-color);
+  opacity: 0.9;
+}
+
+.grid-2-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+/* --- Typography --- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--heading-font);
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  line-height: 1.3;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 3rem;
+} /* Adjusted for Roboto Mono */
+h2 {
+  font-size: 2.25rem;
+}
+h3 {
+  font-size: 1.5rem;
+}
+p {
+  margin-bottom: 1.5rem;
+  font-weight: 300;
+}
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: color var(--transition-speed) ease;
+}
+a:hover,
+a:focus {
+  color: var(--accent-hover-color);
+  text-decoration: underline;
+}
+
+/* --- Navigation Bar --- */
+.navbar {
+  background-color: rgba(255, 255, 255, 0.95); /* Slightly transparent white */
+  backdrop-filter: blur(10px); /* Frosted glass effect */
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  height: var(--navbar-height);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.nav-logo {
+  font-family: var(--heading-font);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  text-decoration: none;
+}
+.nav-logo:hover {
+  text-decoration: none;
+  color: var(--accent-color);
+}
+
+.nav-menu {
+  /* Initially hidden on mobile, shown on desktop */
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-link {
+  font-weight: 500;
+  color: var(--text-color);
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 0.3rem;
+  transition: color var(--transition-speed) ease;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--accent-color);
+  transition: width var(--transition-speed) ease;
+}
+
+.nav-link:hover,
+.nav-link:focus,
+.nav-link.active {
+  color: var(--accent-color);
+}
+
+.nav-link:hover::after,
+.nav-link:focus::after,
+.nav-link.active::after {
+  width: 70%; /* Underline effect width */
+}
+
+/* Mobile Navigation Toggle */
+.mobile-nav-toggle {
+  display: none; /* Hidden on desktop */
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.8rem; /* Make icon larger */
+  color: var(--primary-color);
+  z-index: 1100; /* Above navbar content */
+  padding: 0.5rem;
+}
+.mobile-nav-toggle .lucide {
+  display: block; /* Ensure icons stack correctly if needed */
+}
+
+/* --- Hero Section --- */
+.hero-section {
+  min-height: calc(
+    100vh - var(--navbar-height)
+  ); /* Full viewport height minus navbar */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* For scroll down link positioning */
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  font-weight: 300;
+  margin-bottom: 2rem;
+  max-width: 700px;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+}
+
+.hero-buttons .btn .lucide {
+  margin-right: 0.5em; /* Space between icon and text */
+  vertical-align: middle; /* Align icon nicely */
+}
+
+.scroll-down-link {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  color: var(--light-text-color);
+  animation: bounce 2s infinite;
+}
+.scroll-down-link:hover {
+  color: var(--accent-hover-color);
+  text-decoration: none;
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  40% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+  60% {
+    transform: translateX(-50%) translateY(-5px);
+  }
+}
+
+/* --- About Section --- */
+.about-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 50%; /* Circular image */
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+  border: 5px solid #fff; /* Optional white border */
+}
+.about-content h2 {
+  margin-bottom: 1.5rem;
+}
+
+/* --- Skills Section --- */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.skill-category {
+  background-color: #fff; /* White background for categories */
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.skill-category h3 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  color: var(--accent-color);
+}
+
+.skill-category ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.skill-category li {
+  margin-bottom: 0.5rem;
+  font-weight: 400;
+  position: relative;
+  padding-left: 1.5em; /* Space for pseudo-element */
+}
+/* Custom bullet points */
+.skill-category li::before {
+  content: "▹"; /* Triangle bullet */
+  position: absolute;
+  left: 0;
+  color: var(--accent-color);
+  font-weight: bold;
+}
+
+/* --- Education Section --- */
+.education-item {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  margin-bottom: 2rem;
+  box-shadow: var(--box-shadow);
+  border-left: 5px solid var(--accent-color); /* Accent border */
+}
+.education-item:last-child {
+  margin-bottom: 0;
+}
+.education-item h3 {
+  margin-top: 0;
+  margin-bottom: 0.25rem;
+  font-size: 1.4rem;
+}
+.institution {
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 0.25rem;
+}
+.dates {
+  font-style: italic;
+  color: #777;
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+}
+.details {
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+/* --- Buttons --- */
+.btn {
+  display: inline-flex; /* Use flex for icon alignment */
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.75rem;
+  font-family: var(--body-font);
+  font-weight: 500;
+  font-size: 0.95rem;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  border: 2px solid transparent; /* Base border */
+  transition: all var(--transition-speed) ease; /* Transition all properties */
+  gap: 0.5em; /* Space between icon and text if present */
+}
+.btn:hover,
+.btn:focus {
+  text-decoration: none;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+  background-color: var(--accent-color);
+  color: var(--light-text-color);
+  border-color: var(--accent-color);
+}
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: var(--accent-hover-color);
+  border-color: var(--accent-hover-color);
+  color: var(--light-text-color);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+.section-dark .btn-secondary {
+  /* Secondary button on dark background */
+  color: var(--light-text-color);
+  border-color: var(--light-text-color);
+}
+.btn-secondary:hover,
+.btn-secondary:focus {
+  background-color: var(--accent-color);
+  color: var(--light-text-color);
+  border-color: var(--accent-color);
+}
+.section-dark .btn-secondary:hover,
+.section-dark .btn-secondary:focus {
+  background-color: var(--light-text-color);
+  color: var(--primary-color);
+  border-color: var(--light-text-color);
+}
+
+.btn-small {
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+}
+
+/* --- Cards (for Projects) --- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(320px, 1fr)
+  ); /* Responsive grid */
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.card {
+  background-color: #ffffff;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  overflow: hidden;
+  transition: transform var(--transition-speed) ease,
+    box-shadow var(--transition-speed) ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  border-bottom: 1px solid var(--secondary-color); /* Subtle separator */
+}
+
+.card-content {
+  padding: 1.5rem;
+  flex-grow: 1;
+}
+
+.card-content h3 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  font-size: 1.3rem;
+}
+
+.card-content p {
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  color: #555;
+}
+
+.project-tags {
+  margin-bottom: 1rem;
+}
+
+.project-tags span {
+  display: inline-block;
+  background-color: var(--secondary-color);
+  color: var(--accent-color);
+  padding: 0.25em 0.75em;
+  border-radius: 15px; /* Pill shape */
+  font-size: 0.8rem;
+  margin-right: 0.5em;
+  margin-bottom: 0.5em;
+  font-weight: 500;
+}
+
+.card-footer {
+  padding: 0 1.5rem 1.5rem;
+  margin-top: auto; /* Push footer to bottom */
+  display: flex;
+  gap: 0.5rem; /* Space between buttons if multiple */
+  flex-wrap: wrap;
+}
+.card-footer .btn .lucide {
+  font-size: 1em; /* Match button text size */
+}
+
+/* --- Contact Section --- */
+.contact-links {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* --- Footer --- */
+.footer {
+  background-color: #d1d1cf; /* Slightly darker than secondary */
+  padding: 2rem 0;
+  color: #555;
+  font-size: 0.9rem;
+  margin-top: 3rem; /* Space above footer */
+}
+
+/* --- Animations --- */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 992px) {
+  :root {
+    --base-font-size: 15px;
+  }
+  h1 {
+    font-size: 2.8rem;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+  .grid-2-col {
+    grid-template-columns: 1fr; /* Stack columns */
+    gap: 2rem;
+    text-align: center; /* Center text when stacked */
+  }
+  .about-image {
+    max-width: 300px; /* Limit image size */
+    margin: 0 auto 2rem auto; /* Center image */
+  }
+  .about-image img {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --navbar-height: 60px; /* Slightly smaller navbar */
+  }
+  html {
+    scroll-padding-top: var(--navbar-height);
+  }
+  h1 {
+    font-size: 2.5rem;
+  }
+  h2 {
+    font-size: 1.8rem;
+  }
+  .section {
+    padding: 4rem 0;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+
+  /* Mobile Navigation Styles */
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Start off-screen */
+    width: 70%; /* Adjust width as needed */
+    max-width: 300px;
+    height: 100vh;
+    background-color: #ffffff;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    transition: right 0.4s ease-in-out;
+    padding-top: calc(var(--navbar-height) + 2rem); /* Space below navbar */
+    z-index: 1050; /* Below toggle, above content */
+    overflow-y: auto; /* Allow scrolling if menu is long */
+  }
+
+  .nav-menu.active {
+    right: 0; /* Slide in */
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 0 2rem;
+  }
+  .nav-link {
+    font-size: 1.1rem;
+    width: 100%;
+    text-align: center;
+  }
+  .nav-link::after {
+    /* Optional: adjust underline for mobile */
+    display: none; /* Or style differently */
+  }
+
+  .mobile-nav-toggle {
+    display: block; /* Show toggle button */
+  }
+
+  /* Body overlay when mobile menu is active */
+  body.mobile-menu-active::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Dark overlay */
+    z-index: 1040; /* Below menu, above content */
+  }
+
+  .hero-title {
+    font-size: 2.8rem;
+  }
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+  .hero-buttons {
+    flex-direction: column;
+    gap: 0.8rem;
+    align-items: center;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr; /* Stack cards */
+  }
+}

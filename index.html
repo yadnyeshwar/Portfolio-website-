@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yadnyeshwar Sakhare - Engineering Portfolio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Roboto+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="container navbar-container">
+        <a href="#hero" class="nav-logo">Yadnyeshwar Sakhare</a>
+        <nav class="nav-menu">
+          <ul class="nav-links">
+            <li><a href="#hero" class="nav-link active">Home</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#skills" class="nav-link">Skills</a></li>
+            <li><a href="#education" class="nav-link">Education</a></li>
+            <li><a href="#projects" class="nav-link">Projects</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+          </ul>
+        </nav>
+        <button
+          class="mobile-nav-toggle"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+        >
+          <span class="lucide icon-menu" aria-hidden="true"></span>
+          <span
+            class="lucide icon-x"
+            aria-hidden="true"
+            style="display: none"
+          ></span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section id="hero" class="section hero-section section-dark">
+        <div class="container text-center fade-in">
+          <h1 class="hero-title">
+            Aspiring mechanical and Automation Engineer
+          </h1>
+          <p class="hero-subtitle">
+            Passionate about solving complex problems and building innovative
+            solutions.
+          </p>
+          <div class="hero-buttons">
+            <a href="#projects" class="btn btn-primary">View My Work</a>
+            <a
+              href="path/to/your/resume.pdf"
+              download="YourName_Resume.pdf"
+              class="btn btn-secondary"
+            >
+              <span class="lucide icon-download" aria-hidden="true"></span>
+              Download Resume
+            </a>
+          </div>
+          <a
+            href="#about"
+            class="scroll-down-link"
+            aria-label="Scroll down to about section"
+          >
+            <span class="lucide icon-chevron-down" aria-hidden="true"></span>
+          </a>
+        </div>
+      </section>
+
+      <section id="about" class="section">
+        <div class="container grid-2-col fade-in">
+          <div class="about-image">
+            <img
+              src="https://placehold.co/400x400/0a0a2a/f0f0f5?text=Your+Photo"
+              alt="Your Name - Professional Headshot"
+              onerror="this.src='https://placehold.co/400x400/eeeeee/cccccc?text=Image+Error'"
+            />
+          </div>
+          <div class="about-content">
+            <h2>About Me</h2>
+            <p>
+              Hello! I'm Yadnyeshwar Sakhare, a First Year engineering student
+              at Walchand Institute of Technology specializing in Mechanical and
+              Automation. I have a strong foundation in research based in
+              Artificial Intellegence, Machine learning and Automation Projects
+              and Program synthesis using ML
+            </p>
+            <p>
+              I thrive in collaborative environments and enjoy applying
+              theoretical knowledge to practical challenges. I'm constantly
+              seeking opportunities to learn and grow, both technically and
+              personally. Currently looking for internship opportunities
+              starting Immediately.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" class="section section-light-alt">
+        <div class="container fade-in">
+          <h2 class="text-center">Technical Skills</h2>
+          <div class="skills-grid">
+            <div class="skill-category">
+              <h3>Programming Languages</h3>
+              <ul>
+                <li>Python</li>
+                <li>Java</li>
+                <li>C++</li>
+                <li>JavaScript</li>
+              </ul>
+            </div>
+            <div class="skill-category">
+              <h3>Software & Tools</h3>
+              <ul>
+                <li>Git & GitHub</li>
+                <li>Docker</li>
+                <li>MATLAB</li>
+                <li>AutoCAD / SolidWorks</li>
+                <li>VS Code</li>
+              </ul>
+            </div>
+            <div class="skill-category">
+              <h3>Frameworks & Libraries</h3>
+              <ul>
+                <li>React / Angular / Vue</li>
+                <li>Node.js</li>
+                <li>Spring Boot</li>
+                <li>Pandas / NumPy</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="education" class="section">
+        <div class="container fade-in">
+          <h2 class="text-center">Education</h2>
+          <div class="education-item">
+            <h3>B-Tech, Mechanical and Automation Engineering</h3>
+            <p class="institution">
+              Walchand Institute of Technology, [Solapur, Maharashtra]
+            </p>
+            <p class="dates">Expected Graduation: [March, 2028]</p>
+            <p class="details">
+              Relevant Coursework: Basic Electronics, Data
+              Structures,Programming in C,Programming in python , Programming in
+              Java, Computer, Computer Graphics.
+            </p>
+            <p class="details">CGPA/Percentage: 8.5</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="section section-light-alt">
+        <div class="container fade-in">
+          <h2 class="text-center">Projects</h2>
+          <p class="text-center section-subtitle">
+            Here are some of the projects I've worked on.
+          </p>
+          <div class="card-grid">
+            <article class="card">
+              <img
+                src="https://placehold.co/600x400/4a90e2/f8f8f8?text=Project+1+Image"
+                alt="Project 1 Placeholder"
+                class="card-image"
+                onerror="this.src='https://placehold.co/600x400/eeeeee/cccccc?text=Image+Error'"
+              />
+              <div class="card-content">
+                <h3>Project Title One</h3>
+                <p>
+                  A brief description of the project, highlighting the problem,
+                  solution, and technologies used (e.g., Python, OpenCV,
+                  Raspberry Pi).
+                </p>
+                <div class="project-tags">
+                  <span>Python</span><span>Machine Learning</span
+                  ><span>OpenCV</span>
+                </div>
+              </div>
+              <div class="card-footer">
+                <a
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-small btn-secondary"
+                  >View Code
+                  <span class="lucide icon-github" aria-hidden="true"></span
+                ></a>
+              </div>
+            </article>
+
+            <article class="card">
+              <img
+                src="https://placehold.co/600x400/0a0a2a/f0f0f5?text=Project+2+Image"
+                alt="Project 2 Placeholder"
+                class="card-image"
+                onerror="this.src='https://placehold.co/600x400/eeeeee/cccccc?text=Image+Error'"
+              />
+              <div class="card-content">
+                <h3>Project Title Two</h3>
+                <p>
+                  Description of another project. Maybe this one involved web
+                  development (e.g., React, Node.js, MongoDB) or mechanical
+                  design (e.g., CAD, FEA).
+                </p>
+                <div class="project-tags">
+                  <span>React</span><span>Node.js</span><span>API</span>
+                </div>
+              </div>
+              <div class="card-footer">
+                <a
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-small btn-secondary"
+                  >View Code
+                  <span class="lucide icon-github" aria-hidden="true"></span
+                ></a>
+              </div>
+            </article>
+
+            <article class="card">
+              <img
+                src="https://placehold.co/600x400/cccccc/333333?text=Project+3+Image"
+                alt="Project 3 Placeholder"
+                class="card-image"
+                onerror="this.src='https://placehold.co/600x400/eeeeee/cccccc?text=Image+Error'"
+              />
+              <div class="card-content">
+                <h3>Project Title Three</h3>
+                <p>
+                  A third project, perhaps focusing on simulation, data
+                  analysis, or hardware design.
+                </p>
+                <div class="project-tags">
+                  <span>MATLAB</span><span>Simulation</span
+                  ><span>Data Analysis</span>
+                </div>
+              </div>
+              <div class="card-footer">
+                <a
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-small btn-secondary"
+                  >View Code
+                  <span class="lucide icon-github" aria-hidden="true"></span
+                ></a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section section-dark">
+        <div class="container text-center fade-in">
+          <h2>Get In Touch</h2>
+          <p>
+            I'm always open to discussing new projects, creative ideas, or
+            opportunities to be part of your visions. Feel free to reach out!
+          </p>
+          <div class="contact-links">
+            <a href="mailto:your.email@example.com" class="btn btn-primary">
+              <span class="lucide icon-mail" aria-hidden="true"></span> Email Me
+            </a>
+            <a
+              href="https://www.linkedin.com/in/yadnyeshwar-s-b936702a2/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-secondary"
+            >
+              <span class="lucide icon-linkedin" aria-hidden="true"></span>
+              LinkedIn
+            </a>
+            <a
+              href="https://github.com/yadnyeshwar/yas-demo-"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-secondary"
+            >
+              <span class="lucide icon-github" aria-hidden="true"></span> GitHub
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container text-center">
+        <p>
+          &copy; <span id="current-year"></span> Your Name. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
